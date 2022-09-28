@@ -41,8 +41,6 @@
 
 # Решение.
 
-from unittest import result
-
 
 def Possible_coordinates(number):
     if number == 1:
