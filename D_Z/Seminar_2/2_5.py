@@ -7,9 +7,6 @@
 import random
 
 array = list(range(10))
-
-for i in array:
-    array[i] = i
 print(array)
 
 for i in array:
@@ -18,3 +15,15 @@ for i in array:
     array[i] = array[k]
     array[k] = temp
 print(array)
+
+
+# Или
+
+array1 = list(range(10))
+print(array1)
+for i in range(len(array1)):
+    n_1 = random.randrange(len(array1))
+    n_2 = random.randrange(len(array1))
+    array1[n_1], array1[n_2] = array1[n_2], array1[n_1]
+print(array1)
+

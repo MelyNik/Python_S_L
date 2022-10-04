@@ -17,8 +17,8 @@ for i in range(-n,n+1):
     list.append(i)
 print(list)
 
-if number_1 < ((n * 2) + 1):
-    if number_2 < ((n * 2) + 1):
+if number_1 < ((n * 2) + 1) and number_1 > -((n * 2) + 1):
+    if number_2 < ((n * 2) + 1) and number_2 > -((n * 2) + 1):
         composition = list[number_1-1] * list[number_2-1]
         print(composition)
     else:
