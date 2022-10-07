@@ -21,15 +21,13 @@ def Filling_in_the_list(length, mi, ma):
     return array
 
 def Difference_of_elements(array):
-    mi = array[0]
+    mi = ma = array[0]
     for i in array:
         if i < mi:
             mi=i
-    a = int(mi)
-    ma = array[0]
-    for i in array:
-        if i > ma:
+        elif i > ma:
             ma = i
+    a = int(mi)
     b = int(ma)
     result = round(((ma - b)-(mi - a)),2)
     print('Min: {}, Max: {}. Difference: {}'.format(mi,ma,result))

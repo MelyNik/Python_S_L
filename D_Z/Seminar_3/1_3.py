@@ -24,24 +24,35 @@ print(number)
 
 # Или
 
-def Filling_in_the_list(number):
-    array = []
-    a = num_1
-    while a != 0:
-        array.append(a - ((a//2) * 2))
-        a = a // 2
-    return array
+# def Filling_in_the_list(number):
+#     array = []
+#     a = number
+#     while a != 0:
+#         array.append(a - ((a//2) * 2))
+#         a = a // 2
+#     return array
+# 
+# def Flipping(array):
+#     my_list = []
+#     for i in range(len(array)):
+#         my_list.append(array[len(array) - i - 1])
+#         print(int(my_list[i]), end="")
+# 
+# num_1 = int(input('Введите число: '))
+# 
+# array = Filling_in_the_list(num_1)
+# 
+# Flipping(array)
 
-def Flipping(array):
-    k = len(array)
-    my_list = []
-    for i in range(len(array)):
-        my_list.append(array[k-1])
-        k-=1
-        print(int(my_list[i]), end="")
+# Или 
+
+def Flipping(number):
+    array = []
+    while number > 0:
+        array.insert(0, number % 2)
+        number//=2
+    print(*array, sep='') # * - это распаковка списка, а sep указываем не разделять выводимые значения пробелом.
 
 num_1 = int(input('Введите число: '))
 
-array = Filling_in_the_list(num_1)
-
-Flipping(array)
+Flipping(num_1)

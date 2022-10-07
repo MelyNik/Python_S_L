@@ -51,3 +51,31 @@ else:
     array = Filling_in_the_list(n,0, 20)
     print(array)
     Product_of_list_pairs(array)
+
+# Или
+
+def Filling_in_the_list1(length,mi, ma):
+    my_list = sample(range(mi,ma), length)
+    return my_list
+
+def Product_of_list_pairs1(array):
+    my_list = []
+    for j in range(len(array) // 2):
+        my_list.append(array[j]*array[len(array)-j-1])
+    if len(array) % 2:
+        my_list.append(array[len(array)//2])
+    print(my_list)
+
+n1 = int(input('Введите длину списка: '))
+
+if n1 == 0:
+    print('Ошибка!!! Список не может быть длиной 0')
+elif n1 > 0:
+    array1 = Filling_in_the_list1(n1,0, 20)
+    print(array1)
+    Product_of_list_pairs1(array1)
+else:
+    n1 = n1 * (-1)
+    array1 = Filling_in_the_list1(n1,0, 20)
+    print(array1)
+    Product_of_list_pairs1(array1)

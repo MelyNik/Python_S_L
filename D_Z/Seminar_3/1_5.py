@@ -18,9 +18,10 @@ def Negative_fib(n):
         array.append(num_1)
         array.insert(0, num_1 * (-1)** i)
         num_1, num_2 = num_2, num_1 + num_2
+    print(*array)
     return array
 
 n = int(input('Введите число: '))
 
-array = Negative_fib(n)
-print(array)
+Negative_fib(n)
+

@@ -13,9 +13,8 @@ def Sum_of_elements_list(length,mi, ma):
     my_list = sample(range(mi,ma), length)
     print(my_list)
     sum = 0
-    for i in range(len(my_list)):
-        if i % 2 == 0: 
-            sum += my_list[i]
+    for i in range(0, len(my_list), 2):
+        sum += my_list[i]
     print(sum)
 
 n = int(input('Введите длину списка: '))
