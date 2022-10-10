@@ -16,3 +16,22 @@
 # 
 # out
 # The contents of the files do not match!
+
+from random import choices
+
+def File_sum(file_1, file_2):
+    with open(file_1, 'r', encoding='utf-8') as my_file_1, \
+        open(file_2, 'r', encoding='utf-8') as my_file_2:  # Открыли 2 файла с переменными file_1 и file_2 добавленных в функцию
+                                                           # способом чтения 'r', что бы открыть одновременно использовали
+                                                           # между ними запятую и обратный слэш.
+        a = my_file_1.readlines() # Далее функцией readlines() считываем всю информацию из файла my_file_1 и добавляем в список ( все элементы списка будут строками.)
+        b = my_file_2.readlines() # Далее функцией readlines() считываем всю информацию из файла my_file_1 и добавляем в список ( все элементы списка будут строками.)
+        if len(a) == len(b):      # Если длина списка а и длина списка b совпадают, то работаем дальше.
+            with open('sum_file.txt', 'a', encoding='unf-8') as sum_f: # Создаём новый файл sum_file.txt в режиме до записи и называем его sum_f.
+                for i, k in enumerate(a): # Функция enumerate то же самое, что и range, только выводит кортежи где i это индекс позиции, а k это сам элемент.
+                    sum_f.write(f'{k[:-5]} + {b[i]}') # В данном случае получается элемент k с индексом от 0 до -5 (-5 потому, что равно, 0 и \n не должно попасть в выражение)
+                                                      # (Получается элемент k это большое выражение) плюс всё выражение списка b под индексом  i, которое уже будет с (равно, 0 и \n)
+        else:
+            print('The contents of the files do not match!')
+
+File_sum('my_text.txt', 'result.txt')

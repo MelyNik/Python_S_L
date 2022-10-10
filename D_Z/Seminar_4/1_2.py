@@ -23,7 +23,7 @@ def List_of_prime_factors_of_a_number(number):
     array = []
     i = 2
     while number != 1:
-        if number % i == 0:
+        if not number % i:
             number = number // i
             array.append(i)
         else:
