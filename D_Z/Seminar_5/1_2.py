@@ -35,29 +35,33 @@ def Encode(text='text.txt', final_text='text_f.txt'):
     # Проверяем наличие пути только файла text.
     if path.exists(text) and not path.exists(final_text):
         # path.exists - функция которая проверяет наличие пути у файла или его отсутствие.
+        # В If Указали, что 1 файл должен существовать, а другой нет, для того, что другой файл создали, а не взяли откуда-то
+        # Далее открываем оба файла для взаимодействия с ними. 
+        # with open(text) без режима, потому, что по умолчанию стоит на чтении 'r'.
         with open(text) as f_1, \
-                open(final_text, 'a') as f_2:
-            for i in f_1:
-                f_2.write(
-                    ''.join([f'{len(list(l))}{letter}' for letter, l in groupby(i)]))
-                # Пишем в файл 2 функцией  groupby(i) где i это строка, letter это буква, а l это количество
+                open(final_text, 'a') as f_2: # Файл final_text открыли с возможностью дозаписи "a".
+            for i in f_1: # Цикл в данном случае обозначает, что i проходит по строке и каждая новая i это новая строка.
+                # Ниже создали List Comprehension (быстрый список) и преобразовали его в текст командой ''.join() без пробелов.
+                f_2.write(''.join([f'{len(list(l))}{letter}' for letter, l in groupby(i)]))
+                # Пишем в файл f_2 функцией  groupby(i) где i это строка, letter это буква, а l это количество
                 # таких же букв идущих подряд, и получилась длина списка из этих букв {len(list(l))}{letter}.
     else:
         print('The files do not exists in the system!')
 
 
 def Decode(result):
-    if path.exists(result):
-        with open(result) as r:
-            text = ''
-            for i in r:
-                my_list = []
-                for l in i.strip():
-                    if l.isdigit():
+    if path.exists(result): # методом path.exists(result) проверяем существует ли файл result.
+        with open(result) as r: # Открываем файл result назвав его r.
+            text = '' # Создаём пустую переменную текст строковую.
+            for i in r: # Циклом i проходит по всем элементам файла r.
+                my_list = [] # Созадём пустой список.
+                for l in i.strip(): # Данным образом мы убрали все пробелы в том числе переход на новую строку
+                    # что бы взаимодейстововать с файлом целиком.
+                    if l.isdigit(): # Если элемент цифра, то добавляем её созданную переменную text как строку.
                         text += l
                     else:
-                        my_list.append([int(text), l])
-                        text = ''
+                        my_list.append([int(text), l]) # Иначе в список my_list добавляем картеж где первое значение количество(так думаю), а второе это само значение.
+                        text = '' # Обнуляем переменную.
                 print(''.join(starmap(lambda x, y: x * y, my_list)))
     else:
         print('The files do not exists in the system!')
