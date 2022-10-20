@@ -40,3 +40,5 @@ def some_jokes(n: int, repeat: bool = False) -> list:
 print(some_jokes(100, True))
 print(help(some_jokes))
 print(some_jokes.__doc__)
+
+
