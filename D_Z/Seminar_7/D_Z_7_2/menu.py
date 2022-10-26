@@ -41,4 +41,6 @@ def menu():
         else:
             mx.create()
     else:
-        mistake.mistake()
+        print(mistake.mistake(number))
+
+menu()
